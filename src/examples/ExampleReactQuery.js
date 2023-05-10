@@ -22,6 +22,8 @@ const ExampleReactQuery = () => {
 
   if (isError) return <div className='h-screen w-screen flex justify-center items-center'> <p>Error: {error.message}</p></div>
 
+  if(isFetching) return console.log('is Fetching!')
+
   const content = pantone.data.map(pantone => <Pantone key={pantone.id} pantone={pantone} />)
 
   const lastPage = () => {
@@ -64,8 +66,6 @@ const ExampleReactQuery = () => {
       </div>
       <div className='mx-auto max-w-2xl mt-4'>
         <h1 className='text-[5rem] text-center'>Pantone Colors</h1>
-
-        {isFetching && <span className="loading">Loading...</span>}
         <div className='flex flex-col justify-center items-center m-4'>
           {content}
         </div>
