@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getPantonePage } from '../api/axios'
 import Pantone from '../components/Pantone'
+import { Link } from 'react-router-dom'
 
-const Example2 = () => {
+const ExampleReactQuery = () => {
   const [page, setPage] = useState(1)
 
   const {
@@ -54,16 +55,25 @@ const Example2 = () => {
   )
 
   return (
-    <div className='mx-auto max-w-2xl mt-4'>
-      
-      <h1 className='text-[5rem] text-center'>Pantone Colors</h1>
-
-      {isFetching && <span className="loading">Loading...</span>}
-      <div className='flex flex-col justify-center items-center m-4'>
-        {content}
+    <main>
+      <div className='max-w-6xl mx-auto my-4'>
+        <Link to="/" className='flex gap-1 items-center'>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          Back
+        </Link>
       </div>
-      {nav}
-    </div>
+      <div className='mx-auto max-w-2xl mt-4'>
+        <h1 className='text-[5rem] text-center'>Pantone Colors</h1>
+
+        {isFetching && <span className="loading">Loading...</span>}
+        <div className='flex flex-col justify-center items-center m-4'>
+          {content}
+        </div>
+        {nav}
+      </div>
+    </main>
   )
 }
-export default Example2
+export default ExampleReactQuery;
