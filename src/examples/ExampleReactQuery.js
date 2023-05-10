@@ -18,9 +18,9 @@ const ExampleReactQuery = () => {
     keepPreviousData: true
   })
 
-  if (isLoading) return <p>Loading Colors..</p>
+  if (isLoading) return <div className='h-screen w-screen flex justify-center items-center'><p>Loading Colors..</p></div>
 
-  if (isError) return <p>Error: {error.message}</p>
+  if (isError) return <div className='h-screen w-screen flex justify-center items-center'> <p>Error: {error.message}</p></div>
 
   const content = pantone.data.map(pantone => <Pantone key={pantone.id} pantone={pantone} />)
 
@@ -30,8 +30,6 @@ const ExampleReactQuery = () => {
   const firstPage = () => {
     setPage(1)
   }
-
-  // const pagesArray = Array(pantone.total_pages).fill().map((_, index) => index + 1)
 
   const nav = (
     <nav className="flex gap-5 justify-center mt-10">
